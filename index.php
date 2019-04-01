@@ -42,7 +42,7 @@
             $firstname = $_POST['firstname'];
             $lastname = $_POST['lastname'];
             // Insert data
-            $sql_insert = "INSERT INTO User (firstname, lastname) VALUES (?,?)";
+            $sql_insert = "INSERT INTO [dbo].[User] (firstname, lastname) VALUES (?,?)";
             $stmt = $conn->prepare($sql_insert);
             $stmt->bindValue(1, $lastname);
             $stmt->bindValue(2, $lastname);
@@ -54,7 +54,7 @@
         echo "<h3>Berhasil ditambahkan!</h3>";
     } else if (isset($_POST['load_data'])) {
         try {
-            $sql_select = "SELECT * FROM User";
+            $sql_select = "SELECT * FROM [dbo].[User]";
             $stmt = $conn->query($sql_select);
             $registrants = $stmt->fetchAll(); 
             if(count($registrants) > 0) {
